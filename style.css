@@ -99,9 +99,26 @@ h6 {
 body {
     padding: 2rem 1rem;
 }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 nav ul {
     display: flex;
     gap: 1rem;
     list-style: none;
+}
+
+@media (max-width: 35em) {
+    nav {
+        position: fixed;
+        inset: 0 0 0 30%;
+        background: var(--clr-neutral-200);
+        border: 1px solid magenta
+    }
+    nav ul {
+        flex-direction: column;
+    }
 }
