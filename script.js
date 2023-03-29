@@ -1,7 +1,6 @@
 const primaryNav = document.querySelector(".primary-navigation");
 const navBackground = document.querySelector(".mobile-nav-bg-overlay");
 const navToggle = document.querySelector(".mobile-nav-toggle");
-
 navToggle.addEventListener("click", () => {
     const visible = primaryNav.getAttribute("data-visible");
     
