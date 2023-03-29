@@ -5,6 +5,7 @@
 
     --clr-neutral-900: hsl(240, 100%, 5%);
     --clr-neutral-800: hsl(236, 13%, 5%);
+    --clr-neutral-700: hsla(240, 12%, 5%, 0.5);
     --clr-neutral-300: hsl(233, 8%, 79%);
     --clr-neutral-200: hsl(36, 100%, 99%);
 
@@ -29,9 +30,10 @@
 }
 
 /*
-    2. Remove default margin
+    2. Remove default margin and padding
   */
-* {
+*, ul, li {
+    padding: 0;
     margin: 0;
 }
 
@@ -96,8 +98,10 @@ h6 {
     isolation: isolate;
 }
 
+/* Start own CSS */
 body {
     padding: 2rem 1rem;
+    overflow-x: hidden;
 }
 header {
     display: flex;
@@ -110,15 +114,56 @@ nav ul {
     gap: 1rem;
     list-style: none;
 }
+.sr-only{
+    display: none;
+}
 
 @media (max-width: 35em) {
-    nav {
+    .primary-navigation {
+        z-index: 1000;
         position: fixed;
         inset: 0 0 0 30%;
         background: var(--clr-neutral-200);
-        border: 1px solid magenta
+        border: 1px solid magenta;
+
+        transform: translateX(100%);
+        transition: transform 1s ease-out ;
+    }
+    .primary-navigation[data-visible="true"]{
+        transform: translateX(0%);
     }
     nav ul {
         flex-direction: column;
+        align-items: flex-start;
+        padding: min(30vh, 9rem) 2rem 0 2rem;
+    }
+    .mobile-nav-toggle{
+        position: fixed;
+        z-index: 9999;
+        background-image: url(./assets/images/icon-menu.svg);
+        background-color: transparent;
+        background-repeat: no-repeat;
+        width: 2rem;
+        height: 2rem;
+        border: none;
+        top: 2rem;
+        right: 1.5rem;
+    }
+    .mobile-nav-toggle[aria-expanded="true"]{
+        background-image: url(./assets/images/icon-menu-close.svg);
+    }
+    .mobile-nav-bg-overlay{
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--clr-neutral-700);
+        transform: translateX(-100%);
+        transition: transform 1s;
+    }
+    .mobile-nav-bg-overlay[data-visible="true"]{
+        transform: translateX(0%);
     }
 }

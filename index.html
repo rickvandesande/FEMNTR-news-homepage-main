@@ -23,8 +23,12 @@
 <body>
   <header>
     <img src="./assets/images/logo.svg" alt="Logo of the News homepage" class="logo" width="65px">
+    <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+      <span class="sr-only">Menu</span>
+    </button>
+    <div class="mobile-nav-bg-overlay" data-visible="false"></div>
     <nav>
-      <ul>
+      <ul class="primary-navigation" id="primary-navigation" data-visible="false">
         <li>Home</li>
         <li>New</li>
         <li>Popular</li>
@@ -99,5 +103,6 @@
     </div>
   </footer>
 </body>
-
+<!-- Load script -->
+<script src="./script.js"></script>
 </html>
