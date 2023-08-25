@@ -104,7 +104,11 @@ body {
     overflow-x: hidden;
     font-size: 0.937rem;
 }
-p{
+.container {
+    max-width: 1400px;
+    margin: auto;
+}
+p {
     color: var(--clr-neutral-700);
 }
 a {
@@ -150,6 +154,9 @@ nav a {
 .sr-only{
     display: none;
 }
+.mobile-nav-toggle{
+    display: none;
+}
 
 @media (max-width: 35em) {
     .primary-navigation {
@@ -170,6 +177,7 @@ nav a {
         padding: min(30vh, 9rem) 2rem 0 2rem;
     }
     .mobile-nav-toggle{
+        display: block;
         position: fixed;
         z-index: 9999;
         background-image: url(./assets/images/icon-menu.svg);
